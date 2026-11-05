@@ -223,6 +223,7 @@ impl<'a, 'b> OutputStream<'b> for Stream<'a> {
             // https://www.kernel.org/doc/html/v4.15/media/uapi/v4l/buffer.html#struct-v4l2-plane
             v4l2_buf.bytesused = self.buf_meta[index].bytesused;
             v4l2_buf.field = self.buf_meta[index].field;
+            v4l2_buf.timestamp = self.buf_meta[index].timestamp.into();
 
             if self
                 .handle

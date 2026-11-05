@@ -107,6 +107,10 @@ pub struct Metadata {
     /// Indicates the field order of the image in the buffer.
     pub field: u32,
     /// Time of capture (usually set by the driver)
+    ///
+    /// For MMAP output, this is submitted to the driver when queuing the buffer.
+    /// Set it for each frame: dequeue replaces it with the driver-returned timestamp.
+    /// A zero timestamp requests driver-specific default behavior.
     pub timestamp: Timestamp,
     /// Sequence number, counting the frames
     pub sequence: u32,
